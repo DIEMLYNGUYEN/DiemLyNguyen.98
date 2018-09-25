@@ -1,0 +1,431 @@
+CREATE DATABASE homekeeper
+GO
+
+CREATE TABLE NHANVIEN
+    (
+      MANV NVARCHAR(50) NOT NULL
+                        PRIMARY KEY ,
+      TENNV NVARCHAR(50) NULL ,
+      GIOITINH NVARCHAR(50) NULL ,
+      NGAYSINH DATE NULL ,
+      SDT INT ,
+      EMAIL NVARCHAR(50) NULL ,
+      CMND INT ,
+      CHUYENMON NVARCHAR(50) NULL ,
+      KINHNGHIEM NVARCHAR(50) NULL ,
+      DANHGIA NVARCHAR(50) NULL,
+    )
+GO
+
+CREATE TABLE HOPDONG
+    (
+      MAHD NVARCHAR(50) NOT NULL
+                        PRIMARY KEY ,
+      MANV NVARCHAR(50) FOREIGN KEY ( MANV ) REFERENCES dbo.NHANVIEN
+                        NOT NULL ,
+      MAKH NVARCHAR(50) NULL ,
+      THOIGIANLAMVIEC NVARCHAR(50) NULL ,
+      THOIHANHOPDONG NVARCHAR(50) NULL ,
+      MUCLUONG NVARCHAR(50) NULL ,
+      NGAYKY NVARCHAR(50) NULL ,
+      TRANGTHAITHANHTOAN NVARCHAR(50) NULL ,
+      GHICHU NVARCHAR(50) NULL,
+    )
+GO
+
+CREATE TABLE KHACHHANG
+    (
+      MAKH NVARCHAR(50) FOREIGN KEY ( MAKH ) REFERENCES dbo.HOPDONG
+                        NOT NULL ,
+      TENKHACHHANG NVARCHAR(50) NULL ,
+      DIACHIKH NVARCHAR(50) NULL ,
+      SDT INT ,
+      EMAIL NVARCHAR(50) NULL ,
+      DANHGIANHANVIEN NVARCHAR(50) NULL,
+    )
+GO
+
+
+INSERT  INTO dbo.NHANVIEN
+        ( MANV ,
+          TENNV ,
+          GIOITINH ,
+          NGAYSINH ,
+          SDT ,
+          EMAIL ,
+          CMND ,
+          CHUYENMON ,
+          KINHNGHIEM ,
+          DANHGIA
+        )
+VALUES  ( N'NV01' , -- MANV - nvarchar(50)
+          N'NGUYEN THI HONG' ,--TENNV - nvarchar(50)
+          N'NU' ,--GIOITINH - nvarchar(50)
+          N'20/01/1993' ,--NGAYSINH- nvarchar(50)
+          N'01226108292' ,--SDT- int
+          N'hongnguyen@gmail.com' ,--EMAIL- nvarchar(50)
+          N'201186299' ,--CMND-nvarchar(50)
+          N'GIUPVIEC' ,--CHUYENMON- nvarchar(50)
+          N'1 NAM' ,--KINHNGHIEM-nvarchar(50)
+          N'Tot'-- DANHGIA-nvarchar(50)
+		 )
+
+
+INSERT  INTO dbo.NHANVIEN
+        ( MANV ,
+          TENNV ,
+          GIOITINH ,
+          NGAYSINH ,
+          SDT ,
+          EMAIL ,
+          CMND ,
+          CHUYENMON ,
+          KINHNGHIEM ,
+          DANHGIA
+        )
+VALUES  ( N'NV02' , -- MANV - nvarchar(50)
+          N'TRUONG DUC QUAN' ,--TENNV - nvarchar(50)
+          N'NAM' ,--GIOITINH - nvarchar(50)
+          N'22/11/1996' ,--NGAYSINH- nvarchar(50)
+          N'01208292814' ,--SDT- int
+          N'quantruong@gmail.com' ,--EMAIL- nvarchar(50)
+          N'202108260' ,--CMND-nvarchar(50)
+          N'LAI XE' ,--CHUYENMON- nvarchar(50)
+          N'2 NAM' ,--KINHNGHIEM-nvarchar(50)
+          N'Tot'-- DANHGIA-nvarchar(50)
+		 )
+
+
+INSERT  INTO dbo.NHANVIEN
+        ( MANV ,
+          TENNV ,
+          GIOITINH ,
+          NGAYSINH ,
+          SDT ,
+          EMAIL ,
+          CMND ,
+          CHUYENMON ,
+          KINHNGHIEM ,
+          DANHGIA
+        )
+VALUES  ( N'NV03' , -- MANV - nvarchar(50)
+          N'NGUYEN VAN DUONG' ,--TENNV - nvarchar(50)
+          N'NAM' ,--GIOITINH - nvarchar(50)
+          N'10/07/1990' ,--NGAYSINH- nvarchar(50)
+          N'0188140920' ,--SDT- int
+          N'duongnguyen@gmail.com' ,--EMAIL- nvarchar(50)
+          N'200182910' ,--CMND-nvarchar(50)
+          N'LAI XE' ,--CHUYENMON- nvarchar(50)
+          N'4 NAM' ,--KINHNGHIEM-nvarchar(50)
+          N'Tot'-- DANHGIA-nvarchar(50)
+		 )
+
+
+INSERT  INTO dbo.NHANVIEN
+        ( MANV ,
+          TENNV ,
+          GIOITINH ,
+          NGAYSINH ,
+          SDT ,
+          EMAIL ,
+          CMND ,
+          CHUYENMON ,
+          KINHNGHIEM ,
+          DANHGIA
+        )
+VALUES  ( N'NV04' , -- MANV - nvarchar(50)
+          N'TRAN THANH TIEN' ,--TENNV - nvarchar(50)
+          N'NU' ,--GIOITINH - nvarchar(50)
+          N'12/03/1996' ,--NGAYSINH- nvarchar(50)
+          N'0922109280' ,--SDT- int
+          N'tientran@gmail.com' ,--EMAIL- nvarchar(50)
+          N'206190221' ,--CMND-nvarchar(50)
+          N'TAP VU' ,--CHUYENMON- nvarchar(50)
+          N'1 NAM' ,--KINHNGHIEM-nvarchar(50)
+          N'Tot'-- DANHGIA-nvarchar(50)
+		 )
+
+
+INSERT  INTO dbo.NHANVIEN
+        ( MANV ,
+          TENNV ,
+          GIOITINH ,
+          NGAYSINH ,
+          SDT ,
+          EMAIL ,
+          CMND ,
+          CHUYENMON ,
+          KINHNGHIEM ,
+          DANHGIA
+        )
+VALUES  ( N'NV05' , -- MANV - nvarchar(50)
+          N'NGUYEN BAO NHU' ,--TENNV - nvarchar(50)
+          N'NU' ,--GIOITINH - nvarchar(50)
+          N'08/01/1992' ,--NGAYSINH- nvarchar(50)
+          N'01261289628' ,--SDT- int
+          N'nhunguyen@gmail.com' ,--EMAIL- nvarchar(50)
+          N'201022875' ,--CMND-nvarchar(50)
+          N'TRONG TRE' ,--CHUYENMON- nvarchar(50)
+          N'3 NAM' ,--KINHNGHIEM-nvarchar(50)
+          N'Tot'-- DANHGIA-nvarchar(50)
+		 )
+
+
+INSERT  INTO dbo.NHANVIEN
+        ( MANV ,
+          TENNV ,
+          GIOITINH ,
+          NGAYSINH ,
+          SDT ,
+          EMAIL ,
+          CMND ,
+          CHUYENMON ,
+          KINHNGHIEM ,
+          DANHGIA
+        )
+VALUES  ( N'NV06' , -- MANV - nvarchar(50)
+          N'HUYNH LONG NHAT' ,--TENNV - nvarchar(50)
+          N'NAM' ,--GIOITINH - nvarchar(50)
+          N'19/05/1994' ,--NGAYSINH- nvarchar(50)
+          N'01698220771' ,--SDT- int
+          N'nhathuynh@gmail.com' ,--EMAIL- nvarchar(50)
+          N'202130228' ,--CMND-nvarchar(50)
+          N' VE SINH' ,--CHUYENMON- nvarchar(50)
+          N'2 NAM' ,--KINHNGHIEM-nvarchar(50)
+          N'Tot'-- DANHGIA-nvarchar(50)
+		 )
+GO
+INSERT INTO dbo.HOPDONG
+        ( MAHD ,
+          MANV ,
+          MAKH ,
+          THOIGIANLAMVIEC ,
+          THOIHANHOPDONG ,
+          MUCLUONG ,
+          NGAYKY ,
+          TRANGTHAITHANHTOAN ,
+          GHICHU
+        )
+VALUES  ( N'HD01' , -- MAHD - nvarchar(50)
+          N'NV01' , -- MANV - nvarchar(50)
+          N'KH01' , -- MAKH - nvarchar(50)
+          N'2 THANG' , -- THOIGIANLAMVIEC - nvarchar(50)
+          N'3-5/2018' , -- THOIHANHOPDONG - nvarchar(50)
+          N'3 TRIEU' , -- MUCLUONG - nvarchar(50)
+          N'21/02/2018' , -- NGAYKY - nvarchar(50)
+          N'CHUA THANH TOAN' , -- TRANGTHAITHANHTOAN - nvarchar(50)
+          N'THUONG THEM NEU LAM TOT'  -- GHICHU - nvarchar(50)
+        )
+
+INSERT INTO dbo.HOPDONG
+        ( MAHD ,
+          MANV ,
+          MAKH ,
+          THOIGIANLAMVIEC ,
+          THOIHANHOPDONG ,
+          MUCLUONG ,
+          NGAYKY ,
+          TRANGTHAITHANHTOAN ,
+          GHICHU
+        )
+VALUES  ( N'HD02' , -- MAHD - nvarchar(50)
+          N'NV02' , -- MANV - nvarchar(50)
+          N'KH02' , -- MAKH - nvarchar(50)
+          N'1 THANG' , -- THOIGIANLAMVIEC - nvarchar(50)
+          N'7-8/2018' , -- THOIHANHOPDONG - nvarchar(50)
+          N'2.5 TRIEU' , -- MUCLUONG - nvarchar(50)
+          N'25/06/2018' , -- NGAYKY - nvarchar(50)
+          N'CHUA THANH TOAN' , -- TRANGTHAITHANHTOAN - nvarchar(50)
+          N'NULL'  -- GHICHU - nvarchar(50)
+        )
+
+INSERT INTO dbo.HOPDONG
+        ( MAHD ,
+          MANV ,
+          MAKH ,
+          THOIGIANLAMVIEC ,
+          THOIHANHOPDONG ,
+          MUCLUONG ,
+          NGAYKY ,
+          TRANGTHAITHANHTOAN ,
+          GHICHU
+        )
+VALUES  ( N'HD03' , -- MAHD - nvarchar(50)
+          N'NV03' , -- MANV - nvarchar(50)
+          N'KH03' , -- MAKH - nvarchar(50)
+          N'5 THANG' , -- THOIGIANLAMVIEC - nvarchar(50)
+          N'7-12/2018' , -- THOIHANHOPDONG - nvarchar(50)
+          N'3 TRIEU' , -- MUCLUONG - nvarchar(50)
+          N'21/06/2018' , -- NGAYKY - nvarchar(50)
+          N'CHUA THANH TOAN' , -- TRANGTHAITHANHTOAN - nvarchar(50)
+          N'NHA CO TRE NHO'  -- GHICHU - nvarchar(50)
+        )
+
+INSERT INTO dbo.HOPDONG
+        ( MAHD ,
+          MANV ,
+          MAKH ,
+          THOIGIANLAMVIEC ,
+          THOIHANHOPDONG ,
+          MUCLUONG ,
+          NGAYKY ,
+          TRANGTHAITHANHTOAN ,
+          GHICHU
+        )
+VALUES  ( N'HD04' , -- MAHD - nvarchar(50)
+          N'NV04' , -- MANV - nvarchar(50)
+          N'KH04' , -- MAKH - nvarchar(50)
+          N'3 THANG' , -- THOIGIANLAMVIEC - nvarchar(50)
+          N'5-8/2018' , -- THOIHANHOPDONG - nvarchar(50)
+          N'3.5 TRIEU' , -- MUCLUONG - nvarchar(50)
+          N'20/04/2018' , -- NGAYKY - nvarchar(50)
+          N'CHUA THANH TOAN' , -- TRANGTHAITHANHTOAN - nvarchar(50)
+          N'NULL'  -- GHICHU - nvarchar(50)
+        )
+
+INSERT INTO dbo.HOPDONG
+        ( MAHD ,
+          MANV ,
+          MAKH ,
+          THOIGIANLAMVIEC ,
+          THOIHANHOPDONG ,
+          MUCLUONG ,
+          NGAYKY ,
+          TRANGTHAITHANHTOAN ,
+          GHICHU
+        )
+VALUES  ( N'HD05' , -- MAHD - nvarchar(50)
+          N'NV05' , -- MANV - nvarchar(50)
+          N'KH05' , -- MAKH - nvarchar(50)
+          N'2 THANG' , -- THOIGIANLAMVIEC - nvarchar(50)
+          N'8-10/2018' , -- THOIHANHOPDONG - nvarchar(50)
+          N'4 TRIEU' , -- MUCLUONG - nvarchar(50)
+          N'18/07/2018' , -- NGAYKY - nvarchar(50)
+          N'CHUA THANH TOAN' , -- TRANGTHAITHANHTOAN - nvarchar(50)
+          N'NULL'  -- GHICHU - nvarchar(50)
+        )
+
+INSERT INTO dbo.HOPDONG
+        ( MAHD ,
+          MANV ,
+          MAKH ,
+          THOIGIANLAMVIEC ,
+          THOIHANHOPDONG ,
+          MUCLUONG ,
+          NGAYKY ,
+          TRANGTHAITHANHTOAN ,
+          GHICHU
+        )
+VALUES  ( N'HD06' , -- MAHD - nvarchar(50)
+          N'NV06' , -- MANV - nvarchar(50)
+          N'KH06' , -- MAKH - nvarchar(50)
+          N'4 THANG' , -- THOIGIANLAMVIEC - nvarchar(50)
+          N'6-10/2018' , -- THOIHANHOPDONG - nvarchar(50)
+          N'3 TRIEU' , -- MUCLUONG - nvarchar(50)
+          N'15/05/2018' , -- NGAYKY - nvarchar(50)
+          N'CHUA THANH TOAN' , -- TRANGTHAITHANHTOAN - nvarchar(50)
+          N'NULL'  -- GHICHU - nvarchar(50)
+        )
+
+GO
+
+INSERT INTO dbo.KHACHHANG
+        ( MAKH ,
+          TENKHACHHANG ,
+          DIACHIKH ,
+          SDT ,
+          EMAIL ,
+          DANHGIANHANVIEN
+        )
+VALUES  ( N'KH01' , -- MAKH - nvarchar(50)
+          N'NGUYEN LY DIEM' , -- TENKHACHHANG - nvarchar(50)
+          N'QUAN LIEN CHIEU' , -- DIACHIKH - nvarchar(50)
+          0169210872 , -- SDT - int
+          N'diemnguyen@gmail.com' , -- EMAIL - nvarchar(50)
+          N'Tot'  -- DANHGIANHANVIEN - nvarchar(50)
+        )
+
+INSERT INTO dbo.KHACHHANG
+        ( MAKH ,
+          TENKHACHHANG ,
+          DIACHIKH ,
+          SDT ,
+          EMAIL ,
+          DANHGIANHANVIEN
+        )
+VALUES  ( N'KH02' , -- MAKH - nvarchar(50)
+          N'LE HAO MINH' , -- TENKHACHHANG - nvarchar(50)
+          N'QUAN HAI CHAU' , -- DIACHIKH - nvarchar(50)
+          0188102821 , -- SDT - int
+          N'minhle@gmail.com' , -- EMAIL - nvarchar(50)
+          N'Tot'  -- DANHGIANHANVIEN - nvarchar(50)
+        )
+
+INSERT INTO dbo.KHACHHANG
+        ( MAKH ,
+          TENKHACHHANG ,
+          DIACHIKH ,
+          SDT ,
+          EMAIL ,
+          DANHGIANHANVIEN
+        )
+VALUES  ( N'KH03' , -- MAKH - nvarchar(50)
+          N'PHAM TRAN TUYET ANH' , -- TENKHACHHANG - nvarchar(50)
+          N'QUAN SON TRA' , -- DIACHIKH - nvarchar(50)
+          0921720197 , -- SDT - int
+          N'anhpham@gmail.com' , -- EMAIL - nvarchar(50)
+          N'Tot'  -- DANHGIANHANVIEN - nvarchar(50)
+        )
+
+INSERT INTO dbo.KHACHHANG
+        ( MAKH ,
+          TENKHACHHANG ,
+          DIACHIKH ,
+          SDT ,
+          EMAIL ,
+          DANHGIANHANVIEN
+        )
+VALUES  ( N'KH04' , -- MAKH - nvarchar(50)
+          N'TRAN NGUYEN VU ANH' , -- TENKHACHHANG - nvarchar(50)
+          N'QUAN CAM LE' , -- DIACHIKH - nvarchar(50)
+          01262910710 , -- SDT - int
+          N'anhtran1@gmail.com' , -- EMAIL - nvarchar(50)
+          N'Tot'  -- DANHGIANHANVIEN - nvarchar(50)
+        )
+
+INSERT INTO dbo.KHACHHANG
+        ( MAKH ,
+          TENKHACHHANG ,
+          DIACHIKH ,
+          SDT ,
+          EMAIL ,
+          DANHGIANHANVIEN
+        )
+VALUES  ( N'KH05' , -- MAKH - nvarchar(50)
+          N'NGUYEN TU HAO' , -- TENKHACHHANG - nvarchar(50)
+          N'QUAN LIEN CHIEU' , -- DIACHIKH - nvarchar(50)
+          01660192038 , -- SDT - int
+          N'haonguyen90@gmail.com' , -- EMAIL - nvarchar(50)
+          N'Tot'  -- DANHGIANHANVIEN - nvarchar(50)
+        )
+
+INSERT INTO dbo.KHACHHANG
+        ( MAKH ,
+          TENKHACHHANG ,
+          DIACHIKH ,
+          SDT ,
+          EMAIL ,
+          DANHGIANHANVIEN
+        )
+VALUES  ( N'KH06' , -- MAKH - nvarchar(50)
+          N'NGUYEN TRUNG QUAN' , -- TENKHACHHANG - nvarchar(50)
+          N'QUAN SON TRA' , -- DIACHIKH - nvarchar(50)
+          0188281029 , -- SDT - int
+          N'quannguyen@gmail.com' , -- EMAIL - nvarchar(50)
+          N'Tot'  -- DANHGIANHANVIEN - nvarchar(50)
+        )
+
+
+
+
+
